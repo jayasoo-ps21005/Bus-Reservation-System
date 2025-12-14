@@ -8,7 +8,6 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface ScheduleRepository extends MongoRepository<Schedule, String> {
-
     List<Schedule> findByRouteOriginAndRouteDestination(String origin, String destination);
 
     @Query("{ '_id': ?0 }")
