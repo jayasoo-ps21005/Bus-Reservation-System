@@ -1,43 +1,51 @@
 package com.Transpo.transpo.model;
 
-import org.springframework.data.mongodb.core.mapping.Document;
-
 import org.springframework.data.annotation.Id;
-
+import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "users")
 public class User {
+
     @Id
     private String id;
-    private String username;
-    private String password;
 
-    //store role like "USER" or "ADMIN"
-    
-    private String role ="USER";
+    private String name;
+    private String email;
+    private String password;
+    private Role role;
 
     public User() {
     }
-    public User(String username, String password, String role) {
-        this.username = username;
+
+    public User(String name, String email, String password, Role role) {
+        this.name = name;
+        this.email = email;
         this.password = password;
         this.role = role;
     }
 
-    // Getters and Setters
     public String getId() {
         return id;
     }
-    public void setId(String id){
+
+    public void setId(String id) {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getName() {
+        return name;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -48,12 +56,11 @@ public class User {
         this.password = password;
     }
 
-    public String getRole() {
+    public Role getRole() {
         return role;
     }
 
-    public void setRole(String role) {
+    public void setRole(Role role) {
         this.role = role;
     }
-
 }
